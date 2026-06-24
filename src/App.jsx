@@ -1,11 +1,12 @@
 import { recetas } from './data/recetas';
+import ListaRecetas from './components/ListaRecetas';
 import './App.css';
 
 function App() {
   return (
     <div className="app">
       <h1>RecetApp</h1>
-      {/* Los componentes se irán agregando aquí */}
+      <ListaRecetas recetas={recetas} />
     </div>
   );
 }
