@@ -1,12 +1,94 @@
+import { useState } from 'react';
 import { recetas } from './data/recetas';
 import ListaRecetas from './components/ListaRecetas';
+import FiltroCategoria from './components/FiltroCategoria';
 import './App.css';
+import './styles/Buscador.css';
 
 function App() {
+  const [busqueda, setBusqueda] = useState('');
+  const [categoriaFiltro, setCategoriaFiltro] = useState('Todas');
+
+  // Normaliza y valida el texto de búsqueda
+  const normalizarBusqueda = (texto) => {
+    // Recorta espacios al inicio y final
+    const trimmed = texto.trim();
+    // Limita el largo a 50 caracteres (previene inyecciones y spam)
+    const limitado = trimmed.substring(0, 50);
+    // Convierte a minúsculas para búsqueda case-insensitive
+    return limitado.toLowerCase();
+  };
+
+  // Filtra recetas por categoría y búsqueda
+  const recetasFiltradas = recetas.filter((receta) => {
+    // Filtro por categoría
+    const cumpleCategoría =
+      categoriaFiltro === 'Todas' || receta.categoria === categoriaFiltro;
+
+    // Filtro por búsqueda (normalizada)
+    const busquedaNormalizada = normalizarBusqueda(busqueda);
+    const cumpeBúsqueda =
+      busquedaNormalizada === '' ||
+      receta.nombre.toLowerCase().includes(busquedaNormalizada);
+
+    return cumpleCategoría && cumpeBúsqueda;
+  });
+
+  // Maneja cambios en el buscador (componente controlado)
+  const handleBusquedaChange = (e) => {
+    setBusqueda(e.target.value);
+  };
+
+  // Maneja cambios de categoría
+  const handleCategoriaChange = (categoria) => {
+    setCategoriaFiltro(categoria);
+  };
+
   return (
     <div className="app">
-      <h1>RecetApp</h1>
-      <ListaRecetas recetas={recetas} />
+      <div className="app-header">
+        <h1>🍳 RecetApp</h1>
+        <p className="app-subtitulo">Recetario digital interactivo</p>
+      </div>
+
+      <div className="app-filtros">
+        {/* Componente de búsqueda */}
+        <div className="buscador-recetas">
+          <label htmlFor="busqueda-input" className="buscador-label">
+            Buscar receta por nombre
+          </label>
+          <input
+            id="busqueda-input"
+            type="text"
+            className="buscador-input"
+            placeholder="Ej: Lasaña, Tiramisu, Hummus..."
+            value={busqueda}
+            onChange={handleBusquedaChange}
+            maxLength="50"
+            aria-label="Buscar receta"
+          />
+        </div>
+
+        {/* Componente de filtro por categoría */}
+        <FiltroCategoria
+          categoriaSeleccionada={categoriaFiltro}
+          onCategoriaChange={handleCategoriaChange}
+        />
+      </div>
+
+      {/* Renderizado condicional: mostrar lista o mensaje */}
+      {recetasFiltradas.length > 0 ? (
+        <ListaRecetas recetas={recetasFiltradas} />
+      ) : (
+        <div className="resultados-info">
+          <div className="resultados-info-titulo">
+            No hay recetas que coincidan
+          </div>
+          <p>
+            Intenta con otra búsqueda o elige una categoría diferente
+          </p>
+        </div>
+      )}
     </div>
   );
 }

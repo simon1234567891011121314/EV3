@@ -1,0 +1,98 @@
+ETAPA1
+
+PROMPT:
+
+Contexto: Un taller de cocina quiere reemplazar su recetario impreso por un recetario digital interactivo en una tablet del aula. El chef a cargo te entrega el listado de recetas y te pide una aplicación web SPA en React, simple, ordenada y segura, que permita ver las recetas, distinguir su catergoría y resaltar las opciones vegetarianas.
+
+Los datos vienen precargado localmente en el archivo "recetas.js".
+
+También se crearon componentes en blanco en la carpeta "components". 
+
+Etapa 1 - Proyecto base
+
+- recetas.js ya está creado, así que omítelo.
+
+- Importa el array en App.jsx
+
+RESULTADO: El código no era mucho en esta etapa. Solamente ingresó un par de palabras. Pero es lo justo para este caso.
+
+UTILIDAD: Funcionó, al menos no se cayó la página como en varias ocasiones.
+
+
+ETAPA2
+
+PROMPT: GRACIAS. aquí la siguiente etapa:
+
+Etapa 2 - Componente RecetaCard
+
+1. En RecetaCard, el componente recibe por props: nombre, origen, porciones, categoría, descripción, ingredientes
+
+2. Muestra la información de forma visual y ordenada.
+
+3. Aplica un estilo diferenciado según la categoría (un color/etiqueta distinto para Entrada, Fondo, Postre).
+
+Considerar buenas prácticas de desarrollo seguro obligatorias en este componente:
+
+- Define los tipos de las props con PropTypes (o documenta claramente cada prop) y entrega valores por defecto para evitar errores cuando falte un dato.
+
+- Renderiza el texto siempre como contenido JSX normal. No uses dengerouslySetInnerHTML.
+
+- No dejes credenciales, claves ni datos sensibles escritos en el código.
+
+RESULTADO: La página sigue igual, pero se generó código en el componente RecetaCard.
+
+UTILIDAD: De momento no es útil, pues la página sigue igual, se tendrá que enfocar en pedir que la página cambie en la etapa 3.
+
+ETAPA3
+
+PROMPT: La página App.jsx no ha cambiado, puedes implementar el componente RecetaCard a ella o aún no es tiempo?
+
+RESULTADO: La IA señala que ListaRecetas.jsx aún se debe implementar.
+
+UTILIDAD: Pues tiene razón, la página en blanco me hizo dudar de si realmente tuvo algún efecto el código generado. Se verá en el siguiente prompt
+
+************
+
+PROMPT: Ya veo. Aquí va la etapa 3:
+
+1 - En ListaRecetas.jsx se recibirá el array de recetas por props.
+
+2 - Recorre el array con .map() y renderiza una RecetaCard por cada receta.
+
+3 - Asigna correctamente la prop key usando el id de cada elemento (no uses el índice del array).
+
+4 - En App.jsx, renderiza ListaRecetas pasándole los datos importados.
+
+RESULTADO: La página presenta de forma clara y simple las cartitas de las recetas.
+
+UTILIDAD: El mayor paso a nivel visual de COPILOT, en donde ahora sí ya no se ve una página en blanco con solo 2 palabras. Ahora a señalar el paso 4.
+
+___________________
+
+ETAPA 4
+
+PROMPT: BUENISIMOOO. Aquí la etapa 4:
+
+1. Con FiltroCategoria.jsx ya creado, debe tener botones o un selector para filtrar por la categoría: "Todas", "Entrada", "Fondo", "Postre".
+
+2. En App.jsx, usa useState para guardar el filtro seleccionado y un campo de búsqueda por nombre.
+
+3. Aplica ambos filtros sobre el array antes de pasarlo a ListaRecetas.
+
+4. Usa renderizado condicional para mostrar el mensaje "No hay recetas que coincidan" cuando el resultado quede vacío.
+
+Considerar buenas prácticas de desarrollo seguro obligatorias:
+
+- El campo de búsqueda debe ser un componente controlado (su valor vive en el estado de React).
+
+- Valida y normaliza el texto de búsqueda (recorta espacios y limita el largo) antes de usarlo, para no confiar ciegamente en la entrada del usuario.
+
+RESULTADO: La página ahora presenta una barrita de búsqueda, lo principal en esta etapa.
+
+UTILIDAD: Tras ponerla a prueba, la barrita de búsqueda funciona al ingresar el nombre de las recetas. No hay problemas que rompan la página, aparentemente.
+
+___________
+
+ETAPA 5
+
+

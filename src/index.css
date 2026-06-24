@@ -30,6 +30,37 @@
   }
 }
 
+/* Reset y estilos base globales */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--sans);
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  width: 100%;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+}
+
+input,
+textarea,
+select {
+  font-family: inherit;
+}
+
 @media (prefers-color-scheme: dark) {
   :root {
     --text: #9ca3af;
@@ -48,6 +79,8 @@
   #social .button-icon {
     filter: invert(1) brightness(2);
   }
+}
+
 }
 
 body {

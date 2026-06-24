@@ -1,0 +1,58 @@
+.buscador-recetas {
+  margin-bottom: 24px;
+}
+
+.buscador-label {
+  display: block;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 8px;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.buscador-input {
+  width: 100%;
+  padding: 12px 16px;
+  font-size: 16px;
+  border: 2px solid #ddd;
+  border-radius: 6px;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  font-family: inherit;
+}
+
+.buscador-input:focus {
+  outline: none;
+  border-color: #2196f3;
+  box-shadow: 0 0 0 3px rgba(33, 150, 243, 0.1);
+}
+
+.buscador-input::placeholder {
+  color: #999;
+}
+
+.resultados-info {
+  text-align: center;
+  padding: 40px 20px;
+  color: #999;
+  font-size: 16px;
+}
+
+.resultados-info-titulo {
+  font-weight: 600;
+  color: #666;
+  margin-bottom: 8px;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .buscador-recetas {
+    margin-bottom: 16px;
+  }
+
+  .buscador-input {
+    padding: 10px 14px;
+    font-size: 15px;
+  }
+}
