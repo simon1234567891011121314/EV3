@@ -21,7 +21,7 @@ function RecetaCard({
   };
 
   return (
-    <div className="receta-card">
+    <div className={`receta-card ${esVegetariana ? 'vegetariana' : ''}`}>
       <div className={`categoria-badge ${getCategoriaClass(categoria)}`}>
         {categoria}
       </div>
