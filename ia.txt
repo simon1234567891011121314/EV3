@@ -95,4 +95,21 @@ ___________
 
 ETAPA 5
 
+PROMPT: Gracias, quedó de pana, ahora la etapa final...:
+
+Etapa 5 - Destacar las recetas vegetarianas
+
+1. Resalta visualmente los elementos con esVegetariana: true (por ejemplo, una etiqueta "VEG" o un borde distinto).
+
+2. Agrega un contador que muestre cuántas recetas son vegetarianas.
+
+3. Verifica que toda la app corre sin errores ni warnings en consola.
+
+
+
+RESULTADO: Las entradas vegetarianas ahora se destacan con un borde verde, un emoji de planta. Además de señalar en la parte de arriba la cantidad de platos vegetarianos.
+
+UTILIDAD: Ha servido sin duda alguna; al probar los botones los datos cambian, ya sea dirigiéndose a la barrita, o al tipo de plato presentado. Mientras escribo esto
+la IA está buscando errores, eso sí. Según su evaluación, la propia IA encontró un error lógico del tipo de plato vegetariano que debía aparecer, pero no estaba.
+Ahora lo vuelvo a probar solo para confirmar, y efectivamente no hay problemas con el filtro del tipo de plato.
 
